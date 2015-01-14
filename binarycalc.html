@@ -23,23 +23,50 @@
 		<!--[if lte IE 9]><link rel="stylesheet" href="css/ie/v9.css" /><![endif]-->
 		<!--[if lte IE 8]><link rel="stylesheet" href="css/ie/v8.css" /><![endif]-->
 		<script type="text/javascript">
-			var orig, input, result, remain;
-			function setValues() {
-				input = Number(document.getElementById("bin").value);
-				orig = input;
-				result = "";
+			var origBin, inputBin, resultBin, remainBin;
+			var inputDec, origDec, totalDec;
+			function setBinValues() {
+				inputBin = Number(document.getElementById("bin").value);
+				origBin = inputBin;
+				resultBin = "";
 			}
 			
 			function binConvert() {
-				setValues();
-				while (Math.floor(input / 2) != 0) {
-					remain = input % 2;
-					result = (remain.toString()).concat(result);
-					input = Math.floor(input / 2);
+				setBinValues();
+				if (isNaN(inputBin)) {
+					alert("Please enter a valid decimal number.");
+					return;
 				}
-				remain = input % 2;
-				result = (remain.toString()).concat(result);
-				alert(orig + " converted to binary is: " + result);
+				while (Math.floor(inputBin / 2) != 0) {
+					remainBin = inputBin % 2;
+					resultBin = (remainBin.toString()).concat(resultBin);
+					inputBin = Math.floor(inputBin / 2);
+				}
+				remainBin = inputBin % 2;
+				resultBin = (remainBin.toString()).concat(resultBin);
+				alert(origBin + " converted to binary is: " + resultBin);
+			}
+
+			function setDecValues() {
+				inputDec = Number(document.getElementById("dec").value);
+				origDec = inputDec;
+				totalDec = 0;
+			}
+
+			function decConvert() {
+				setDecValues();
+				var dig = extractDigit(inputDec);
+				alert(origDec + " converted to decimal is: " + inputDec);
+			}
+
+			function extractDigit(num) {
+				var digits = [];
+				while (num > 0) {
+					digits.unshift(num % 10);
+					num = Math.floor(num / 10);
+				}
+				digits.unshift(num);
+				return digits;
 			}
 		</script>
 	</head>
@@ -101,21 +128,30 @@
 		<!-- Main -->
 			<div id="main">
 
-				<!-- Experience -->
+				<!-- Binary Conversion -->
 					<section id="binarycalc" class="three">
 						<div class="container">
 
 							<header>
-								<h2>Binary Calculator</h2>
+								<h2>Binary Conversion</h2>
 							</header>
 							<h5>Converting to Binary</h5>
 							<p>Enter a base 10 number to convert to binary.</p>
 							<input id="bin" type="text" />
 							</br>
 							</br>
-							</br>
 
 							<input type="button" value="Convert" onclick="binConvert()"/>
+							</br>
+							</br>
+
+							<h5>Converting to Decimal</h5>
+							<p>Enter a base 2 number to convert to decimal.</p>
+							<input id="dec" type="text" />
+							</br>
+							</br>
+
+							<input type="button" value="Convert" onclick="decConvert()"/>
 
 						</div>
 					</section>
