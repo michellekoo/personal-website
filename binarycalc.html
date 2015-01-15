@@ -24,7 +24,7 @@
 		<!--[if lte IE 8]><link rel="stylesheet" href="css/ie/v8.css" /><![endif]-->
 		<script type="text/javascript">
 			var origBin, inputBin, resultBin, remainBin;
-			var inputDec, origDec, totalDec;
+			var inputDec, totalDec;
 			function setBinValues() {
 				inputBin = Number(document.getElementById("bin").value);
 				origBin = inputBin;
@@ -49,14 +49,18 @@
 
 			function setDecValues() {
 				inputDec = Number(document.getElementById("dec").value);
-				origDec = inputDec;
 				totalDec = 0;
 			}
 
 			function decConvert() {
 				setDecValues();
 				var dig = extractDigit(inputDec);
-				alert(origDec + " converted to decimal is: " + inputDec);
+				var count = 0;
+				while (count < dig.length) {
+					totalDec = totalDec * 2 + dig[count];
+					count += 1;
+				}
+				alert(inputDec + " converted to decimal is: " + totalDec);
 			}
 
 			function extractDigit(num) {
@@ -65,7 +69,6 @@
 					digits.unshift(num % 10);
 					num = Math.floor(num / 10);
 				}
-				digits.unshift(num);
 				return digits;
 			}
 		</script>
