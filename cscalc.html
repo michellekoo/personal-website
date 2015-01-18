@@ -1,0 +1,248 @@
+<!DOCTYPE HTML>
+<!--
+	Michelle Koo's personal website, original template by HTML5 UP
+-->
+<html>
+	<head>
+		<title>Michelle Koo</title>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<!--[if lte IE 8]><script src="css/ie/html5shiv.js"></script><![endif]-->
+		<script src="js/jquery.min.js"></script>
+		<script src="js/jquery.scrolly.min.js"></script>
+		<script src="js/jquery.scrollzer.min.js"></script>
+		<script src="js/skel.min.js"></script>
+		<script src="js/skel-layers.min.js"></script>
+		<script src="js/init.js"></script>
+		<noscript>
+			<link rel="stylesheet" href="css/skel.css" />
+			<link rel="stylesheet" href="css/style.css" />
+			<link rel="stylesheet" href="css/style-wide.css" />
+		</noscript>
+		<!--[if lte IE 9]><link rel="stylesheet" href="css/ie/v9.css" /><![endif]-->
+		<!--[if lte IE 8]><link rel="stylesheet" href="css/ie/v8.css" /><![endif]-->
+		<script type="text/javascript">
+
+			function matchGrade(grd) {
+				if (grd == "A+" || grd == "A") {
+					return 4;
+				} else if (grd == "A-") {
+					return 3.7;
+				} else if (grd == "B+") {
+					return 3.3;
+				} else if (grd == "B") {
+					return 3;
+				} else if (grd == "B-") {
+					return 2.7;
+				} else if (grd == "C+") {
+					return 2.3;
+				} else if (grd == "C") {
+					return 2;
+				} else if (grd == "C-") {
+					return 1.7;
+				} else if (grd == "D+") {
+					return 1.3;
+				} else if (grd == "D") {
+					return 1;
+				} else if (grd == "D-") {
+					return 0.7;
+				} else if (grd == "F+" || grd == "F" || grd == "F-") {
+					return 0;
+				} else {
+					alert("Please enter a valid letter grade.");
+				}
+			}
+
+			function calc() {
+				var mtha, mthb, mthl, cs61a, cs61b, cs61c, cs70;
+				var valMtha, valMthb, valMthl, valCs61a, valCs61b, valCs61c, valCs70;
+				var unitTotal, total;
+				total = 0;
+				unitTotal = 0;
+				mtha = document.getElementById("grade1a").value;
+				mthb = document.getElementById("grade1b").value;
+				mthl = document.getElementById("grade54").value;
+				cs61a = document.getElementById("grade61a").value;
+				cs61b = document.getElementById("grade61b").value;
+				cs61c = document.getElementById("grade61c").value;
+				cs70 = document.getElementById("grade70").value;
+				if (mtha != "") {
+					valMtha = matchGrade(mtha);
+					unitTotal += 4;
+					total += 4 * valMtha;
+				}
+				if (mthb != "") {
+					valMthb = matchGrade(mthb);
+					unitTotal += 4;
+					total += 4 * valMthb;
+				}
+				if (mthl != "") {
+					valMthl = matchGrade(mthl);
+					unitTotal += 4;
+					total += 4 * valMthl;
+				}
+				if (cs61a != "") {
+					valCs61a = matchGrade(cs61a);
+					unitTotal += 4;
+					total += 4 * valCs61a;
+				}
+				if (cs61b != "") {
+					valCs61b = matchGrade(cs61b);
+					unitTotal += 4;
+					total += 4 * valCs61b;
+				}
+				if (cs61c != "") {
+					valCs61c = matchGrade(cs61c);
+					unitTotal += 4;
+					total += 4 * valCs61c;
+				}
+				if (cs70 != "") {
+					valCs70 = matchGrade(cs70);
+					unitTotal += 4;
+					total += 4 * valCs70;
+				}
+				alert("Your technical GPA is: " + total / unitTotal);
+			}
+		</script>
+		<style>
+			table {
+				margin-left: 15%;
+				margin-right: 15%;
+			}
+			table, th, td {
+			    border: 1px solid black;
+			    border-collapse: collapse;
+			}
+			th {
+			    font-weight: bold;
+			}
+		</style>
+	</head>
+	<body>
+
+		<!-- Header -->
+			<div id="header" class="skel-layers-fixed">
+
+				<div class="top">
+
+					<!-- Logo -->
+						<div id="logo">
+							<span class="image avatar48"><img src="images/me.jpg" alt="" /></span>
+							<h1 id="title">Michelle Koo</h1>
+							<p>University of California, Berkeley</p>
+							<p> Computer Science, Class of 2017 </p>
+						</div>
+
+					<!-- Nav -->
+						<nav id="nav">
+							<!--
+							
+								Prologue's nav expects links in one of two formats:
+								
+								1. Hash link (scrolls to a different section within the page)
+								
+								   <li><a href="#foobar" id="foobar-link" class="icon fa-whatever-icon-you-want skel-layers-ignoreHref"><span class="label">Foobar</span></a></li>
+
+								2. Standard link (sends the user to another page/site)
+
+								   <li><a href="http://foobar.tld" id="foobar-link" class="icon fa-whatever-icon-you-want"><span class="label">Foobar</span></a></li>
+							
+							-->
+							<ul>
+								<li><a href="index.html#top" id="top-link" class="skel-layers-ignoreHref"><span class="icon fa-home">Intro</span></a></li>
+								<li><a href="index.html#about" id="about-link" class="skel-layers-ignoreHref"><span class="icon fa-user">About Me</span></a></li>
+								<li><a href="index.html#projects" id="projects-link" class="skel-layers-ignoreHref"><span class="icon fa-th">Projects</span></a></li>
+								<li><a href="index.html#experience" id="experience-link" class="skel-layers-ignoreHref"><span class="icon fa-folder">Experience</span></a></li>
+								<li><a href="index.html#contact" id="contact-link" class="skel-layers-ignoreHref"><span class="icon fa-envelope">Contact</span></a></li>
+							</ul>
+						</nav>
+						
+				</div>
+				
+				<div class="bottom">
+
+					<!-- Social Icons -->
+						<ul class="icons">
+							<li><a href="mailto:michellekoo@berkeley.edu" class="icon fa-envelope"><span class="label">Email</span></a></li>
+							<li><a href="https://www.linkedin.com/pub/michelle-koo/90/526/5" class="icon fa-linkedin"><span class="label">Linkedin</span></a></li>
+							<li><a href="https://github.com/michellekoo" class="icon fa-github"><span class="label">Github</span></a></li>
+							<li><a href="Resume.pdf" class="icon fa-file"><span class="label">Resume</span></a></li>
+						</ul>
+				
+				</div>
+			
+			</div>
+
+		<!-- Main -->
+			<div id="main">
+
+				<!-- GPA Calculator -->
+					<section id="gradecalc" class="three">
+						<div class="container">
+
+							<header>
+								<h2>UC Berkeley CS GPA Calculator</h2>
+							</header>
+							<p> This calculator will calculate your technical GPA of the classes needed to declare Computer Science. Leave classes not taken yet or credited with AP blank. </p>
+							<table id="gradeTable" style="width:70%">
+							  <tr>
+							    <th>Class</th>
+							    <th>Units</th>		
+							    <th>Grade</th>
+							  </tr>
+							  <tr>
+							    <td>Math 1A</td>
+							    <td>4</td>		
+							    <td><input id="grade1a" type="text" /></td>
+							  </tr>
+							  <tr>
+							    <td>Math 1B</td>
+							    <td>4</td>		
+							    <td><input id="grade1b" type="text" /></td>
+							  </tr>
+							  <tr>
+							    <td>Math 54</td>
+							    <td>4</td>		
+							    <td><input id="grade54" type="text" /></td>
+							  </tr>
+							  <tr>
+							    <td>CS61A</td>
+							    <td>4</td>		
+							    <td><input id="grade61a" type="text" /></td>
+							  </tr>
+							  <tr>
+							    <td>CS61B</td>
+							    <td>4</td>		
+							    <td><input id="grade61b" type="text" /></td>
+							  </tr>
+							  <tr>
+							    <td>CS61C</td>
+							    <td>4</td>		
+							    <td><input id="grade61c" type="text" /></td>
+							  </tr>
+							  <tr>
+							    <td>CS70</td>
+							    <td>4</td>		
+							    <td><input id="grade70" type="text" /></td>
+							  </tr>
+							</table>
+							<input type="button" value="Calculate" onclick="calc()"/>
+
+						</div>
+					</section>
+			
+			</div>
+
+		<!-- Footer -->
+			<div id="footer">
+				
+				<!-- Copyright -->
+					<ul class="copyright">
+						<li>&copy; Michelle Koo. All rights reserved.</li><li>This is a modified design. Original design by: <a href="http://html5up.net">HTML5 UP</a></li>
+					</ul>
+				
+			</div>
+
+	</body>
+</html>
