@@ -36,6 +36,9 @@
 				if (isNaN(inputBin)) {
 					alert("Please enter a valid decimal number.");
 					return;
+				} else if (inputBin < 0) {
+					alert("Please enter a positive decimal number.");
+					return;
 				}
 				while (Math.floor(inputBin / 2) != 0) {
 					remainBin = inputBin % 2;
@@ -139,7 +142,7 @@
 								<h2>Binary Conversion</h2>
 							</header>
 							<h5>Converting to Binary</h5>
-							<p>Enter a base 10 number to convert to binary.</p>
+							<p>Enter a positive base 10 number to convert to binary.</p>
 							<input id="bin" type="text" />
 							</br>
 							</br>
@@ -149,7 +152,7 @@
 							</br>
 
 							<h5>Converting to Decimal</h5>
-							<p>Enter a base 2 number to convert to decimal.</p>
+							<p>Enter a positive base 2 number to convert to decimal.</p>
 							<input id="dec" type="text" />
 							</br>
 							</br>
