@@ -53,6 +53,14 @@
 	<script type="text/javascript">
 		var fortune_text = new Array();
 
+		function changeImg() {
+			document.getElementById("imgClosed").src = "images/open.gif";
+		}
+
+		function changeImgBack() {
+			document.getElementById("imgClosed").src = "images/close.gif";
+		}
+
 		function fortune() {
 			fortune_text[0] = "The time is right to make new friends.";
 			fortune_text[1] = "You learn from your mistakes. You will learn a lot today.";
@@ -99,11 +107,29 @@
 			fortune_text[42] = "If you have something worth fighting for, then fight for it.";
 			fortune_text[43] = "Accept your past without regrets. Handle your present with confidence. Face your future without fear.";
 			fortune_text[44] = "Stay true to those who would do the same for you.";
+			fortune_text[45] = "Ask yourself if what you are doing today is getting you closer to where you want to be tomorrow.";
+			fortune_text[46] = "Help! I'm stuck in a Chinese cookie factory!";
+			fortune_text[47] = "Happiness is an activity.";
+			fortune_text[48] = "Stay true to your hear.";
+			fortune_text[49] = "Don't be greedy.";
+			fortune_text[50] = "Your fortune is as sweet as a cookie.";
+			fortune_text[51] = "Integrity is the essence of everything successful.";
+			fortune_text[52] = "If you're happy, you're successful.";
+			fortune_text[53] = "You will always be surrounded by true friends.";
+			fortune_text[54] = "Believing that you are beautiful will make you appear beautiful to others around you.";
+			fortune_text[55] = "Happiness comes from a good life.";
+			fortune_text[56] = "Before trying to please others think of what makes you happy.";
+			fortune_text[57] = "Your golden opportunity is coming shortly.";
+			fortune_text[58] = "You will make many changes before settling down happily.";
+			fortune_text[59] = "Don't pursue happiness. Create it.";
 
-			var i = Math.floor(45 * Math.random());
+			var i = Math.floor(60 * Math.random());
 			alert(fortune_text[i]);
 		}
 
+		function getFortune() {
+			fortune();
+		}
 
 	</script>
 </head>
@@ -114,7 +140,7 @@
 	
 	<div id="page-wrap"> <h1>Fortune cookie me!</h1>
 	<h2> Click on the fortune cookie to open it and discover your fortune! </h2>
-	<input type="button" value="getFortune" onclick="fortune()"/>
+	<img src="images/close.gif" id="imgClosed" onclick="getFortune()"/>
 	</div>
 	<!-- <div id="page-wrap">
 	
