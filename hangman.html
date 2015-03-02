@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	
+	<title>Hangman</title>
+	
+	<style>
+		
+		img.bg {
+			/* Set rules to fill background */
+			min-height: 100%;
+			min-width: 1024px;
+			
+			/* Set up proportionate scaling */
+			width: 100%;
+			height: auto;
+			
+			/* Set up positioning */
+			position: fixed;
+			top: 0;
+			left: 0;
+		}
+		h1 {
+			color: #2cae89;
+			font-weight: bold;
+			font-size: 50px;
+			text-align: center;
+			font-family: sans-serif;
+			text-shadow: white 0.1em 0.1em 0.2em
+		}
+		h2 {
+			color: black;
+			font-size: 20px;
+			text-align: center;
+			font-family: sans-serif;
+			font-weight: 10em;
+		}
+		h3 {
+			padding-top:10px;
+			color: black;
+			text-align: center;
+		}
+		#new-button {
+			border: 2px solid #78c272;
+			color: #78c272;
+			background: #f6f6ec;
+		}
+		#new-button:hover {
+			background:#78c272;
+			color: white;
+		}
+		.new-action-button {
+			text-align: center;
+			padding: 10px 0px;
+			border-radius: 30px;
+			font-size: 13px;
+			font-weight: 700;
+			width: 100px;
+			margin: 0px auto;
+			cursor: pointer;
+			transition: linear 0.2s;
+		}
+		
+		@media screen and (max-width: 1024px){
+			img.bg {
+				left: 50%;
+				margin-left: -512px; }
+		}
+		IMG.displayed {
+		    display: block;
+		    margin-left: auto;
+		    margin-right: auto; }
+		#textDiv {
+			text-align: center;
+			width: 500;
+			margin: 0 auto;
+			font-size: 30px;
+		}
+		#textbox {
+			text-align: center;
+			width: 500;
+			margin: 0 auto;
+			font-size: 20px;
+		}
+		#usedletters {
+			text-align: left;
+			width: 200px;
+			height: 100px;
+			background-color: #b8e7a7;
+		}
+		#innerdiv {
+			text-align: center;
+			width: 200px;
+			height: 80px;
+			background-color: #fff;
+		}
+		
+		#page-wrap { position: relative; width: 800px; height: 800px; margin: 50px auto; padding: 20px; background: #b0e2ff; -moz-box-shadow: 0 0 20px black; -webkit-box-shadow: 0 0 20px black; box-shadow: 0 0 20px black; }
+		p { font: 15px/2 Georgia, Serif; margin: 0 0 30px 0; text-indent: 40px; }
+	</style>
+
+	<script type="text/javascript">
+		var hangman_words = new Array();
+		var chosen_word = "";
+		var letter = "";
+		var chosen_word_len = 0;
+		var incorrect_str = "";
+		var incorrect_count = 0;
+		var blanks = "";
+		function words() {
+			blanks = "";
+			document.getElementById("hangman1").src = "images/hangman1.png";
+			hangman_words = new Array();
+			chosen_word = "";
+			letter = "";
+			chosen_word_len = 0;
+			incorrect_str = "";
+			incorrect_count = 0;
+			var div2 = document.getElementById("innerdiv");
+			div2.textContent = "";
+			var text = div2.textContent;
+
+			hangman_words[0] = "acres";
+			hangman_words[1] = "adult";
+			hangman_words[2] = "advice";
+			hangman_words[3] = "arrangement";
+			hangman_words[4] = "attempt";
+			hangman_words[5] = "autumn";
+			hangman_words[6] = "border";
+			hangman_words[7] = "breeze";
+			hangman_words[8] = "brick";
+			hangman_words[9] = "calm";
+			hangman_words[10] = "canal";
+			hangman_words[11] = "cast";
+			hangman_words[12] = "choose";
+			hangman_words[13] = "claws";
+			hangman_words[14] = "coach";
+			hangman_words[15] = "constantly";
+			hangman_words[16] = "contrast";
+			hangman_words[17] = "cookies";
+			hangman_words[18] = "customs";
+			hangman_words[19] = "damage";
+			hangman_words[20] = "deeply";
+			hangman_words[21] = "derive";
+			hangman_words[22] = "depth";
+			hangman_words[23] = "discussion";
+			hangman_words[24] = "distribute";
+			hangman_words[25] = "economic";
+			hangman_words[26] = "emblem";
+			hangman_words[27] = "environment";
+			hangman_words[28] = "establish";
+			hangman_words[29] = "estimate";
+			hangman_words[30] = "evident";
+			hangman_words[31] = "export";
+			hangman_words[32] = "financial";
+			hangman_words[33] = "formula";
+			hangman_words[34] = "fundraise";
+			hangman_words[35] = "function";
+			hangman_words[36] = "identity";
+			hangman_words[37] = "illegal";
+			hangman_words[38] = "indicate";
+			hangman_words[39] = "individual";
+			hangman_words[40] = "insignificant";
+			hangman_words[41] = "interpret";
+			hangman_words[42] = "involve";
+			hangman_words[43] = "issue";
+			hangman_words[44] = "labor";
+			hangman_words[45] = "legislate";
+			hangman_words[46] = "majority";
+			hangman_words[47] = "method";
+			hangman_words[48] = "misinterpret";
+			hangman_words[49] = "occur";
+			hangman_words[50] = "overestimate";
+			hangman_words[50] = "percentage" ;
+			hangman_words[51] = "policy";
+			hangman_words[52] = "principle";
+			hangman_words[53] = "procedure";
+			hangman_words[54] = "process";
+			hangman_words[55] = "reassess";
+			hangman_words[56] = "recreate";
+			hangman_words[57] = "redisrtibute";
+			hangman_words[58] = "reformulation";
+			hangman_words[59] = "requirement";
+			hangman_words[60] = "research";
+			hangman_words[61] = "respond";
+			hangman_words[62] = "restructure";
+			hangman_words[63] = "section";
+			hangman_words[64] = "significance";
+			hangman_words[65] = "signify";
+			hangman_words[66] = "similarity";
+			hangman_words[67] = "source";
+			hangman_words[68] = "specific";
+			hangman_words[69] = "structural";
+			hangman_words[70] = "tangent";
+			hangman_words[71] = "theoretical";
+			hangman_words[72] = "typography";
+			hangman_words[73] = "umbrella";
+			hangman_words[74] = "unavailable";
+			hangman_words[75] = "undefined";
+			hangman_words[76] = "unearth";
+			hangman_words[77] = "vary";
+			hangman_words[78] = "venture";
+			hangman_words[79] = "vote";
+			hangman_words[80] = "west";
+			hangman_words[81] = "worthwhile";
+			hangman_words[82] = "xerox";
+			hangman_words[83] = "xylophone";
+			hangman_words[84] = "zebra";
+			hangman_words[85] = "zipper";
+			hangman_words[86] = "lynx";
+			var i = Math.floor(87 * Math.random());
+			chosen_word = hangman_words[i];
+			chosen_word_len = chosen_word.length;
+			var div = document.getElementById("textDiv");
+			for (i = 0; i < chosen_word_len; i++) { 
+			    blanks = blanks.concat("_ ");
+			}
+			div.textContent = blanks;
+			var text = div.textContent;
+		}
+		function check_input() {
+			if (letter.length != 1) {
+				alert("Please enter a letter");
+				return false;
+			}
+    		if (letter == null || letter == "") {
+        		alert("Please enter a letter");
+        		return false;
+    		}
+    		var objRegExp  = /^[a-z]|[A-Z]+$/;
+  			var bool = objRegExp.test(letter);
+    		if (bool == false) {
+				alert("Must enter a letter");
+				return false;			
+    		}
+    		return true;
+		}
+		function start() {
+			letter = document.getElementById("myText").value;
+			if (check_input()) {
+			 	var indices = check_letter();
+			 	if (indices.length > 0) {
+			 		correct_letter(indices);
+			 	} else {
+			 		incorrect_letter();
+			 	}
+			 } 
+			
+		}
+		function check_letter() {
+			letter = letter.toLowerCase();
+			var pos = [];
+			var i;
+			for (i = 0; i < chosen_word_len; i++) {
+				if (chosen_word.charAt(i) == letter.charAt(0)) {
+					pos.push(2 * i);
+				}
+			}
+			return pos;
+		}
+		function correct_letter(indices) {
+			var div = document.getElementById("textDiv");
+			div.textContent = "";
+			var text = div.textContent;
+			var num_indices = indices.length;
+			var guess = "";
+			var blank_count = 0;
+			for (i = 0; i < blanks.length; i++) {
+				if (indices.indexOf(i) != -1) {
+					guess = guess.concat(letter);
+					continue;
+				} else if ((blanks.charAt(i) != " ") && (blanks.charAt(i) != "_")) {
+					guess = guess.concat(blanks.charAt(i));
+					continue;
+				} else if (blanks.charAt(i) == "_") {
+					guess = guess.concat("_");
+					blank_count++;
+					continue;
+				} else if (blanks.charAt(i) == " ") {
+					guess = guess.concat(" ");
+					continue;
+				}
+			}
+			blanks = guess;
+			var div = document.getElementById("textDiv");
+			div.textContent = blanks;
+			var text = div.textContent;
+			if (blank_count == 0) {
+				alert("You won!");
+			}
+		}
+		function incorrect_letter() {
+			if (incorrect_str.indexOf(letter) === -1) {
+				incorrect_str = incorrect_str.concat(letter);
+				incorrect_str = incorrect_str.concat(", ");
+				var div2 = document.getElementById("innerdiv");
+				div2.textContent = incorrect_str;
+				var text = div2.textContent;
+				incorrect_count += 1;
+				if (incorrect_count === 6) {
+					alert("Game over. The word was: " + chosen_word);
+				}
+				change_image();
+			} else {
+				alert("You already guessed this letter.");
+			}
+			
+		}
+		function change_image() {
+			var incorrect_img = new Array();
+			incorrect_img[0] = "images/hangman2.png";
+			incorrect_img[1] = "images/hangman2_5.png";
+			incorrect_img[2] = "images/hangman3.png";
+			incorrect_img[3] = "images/hangman4.png";
+			incorrect_img[4] = "images/hangman5.png";
+			incorrect_img[5] = "images/hangman.png";
+			document.getElementById("hangman1").src = incorrect_img[incorrect_count - 1];
+		}
+	</script>
+</head>
+
+<body onload= "words() ;">
+
+	<img src="images/water.jpg" class="bg">
+	
+	<div id="page-wrap"> <h1>Hangman</h1>
+		<div id="usedletters">
+			<h3> Incorrect Guesses </h3>
+			<div id="innerdiv"></div>
+		</div>
+		<IMG class="displayed" src="images/hangman1.png" id="hangman1">
+		<br>
+		<br>
+		<div id="textDiv"></div>
+		<br>
+		<br>
+		<div id="textbox"> Enter letter: <input type="text" id="myText"> </div>
+		<br>
+		<br>
+		<div class="new-action-button" id="new-button" onclick="start()">Play</div>
+		<br>
+		<div class="new-action-button" id="new-button" onclick="words()">Start Over</div>
+
+	</div>
+	
+</body>
+
+</html>
