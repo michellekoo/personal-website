@@ -239,6 +239,7 @@
 		}
 		function start() {
 			letter = document.getElementById("myText").value;
+			document.getElementById("myText").value = "";
 			if (check_input()) {
 			 	var indices = check_letter();
 			 	if (indices.length > 0) {
