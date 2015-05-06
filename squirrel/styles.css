@@ -1,0 +1,134 @@
+@charset "utf-8";
+/* CSS Document */
+
+body {
+	background-color: #e5c197;
+}
+
+#container {
+	padding: 0px;
+	height: auto;
+	margin-right: auto;
+	margin-left: auto;
+	font-family: Tahoma, Geneva, sans-serif;
+	overflow: hidden;
+	
+	
+	
+}
+#holder {
+	padding: 0px;
+	height: auto;
+	width: 960px;
+	margin-right: auto;
+	margin-left: auto;
+	background-color: #f3e3c6
+	font-family: Arial Black, Gadget, sans-serif;
+	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+	background-image: url(Images/backgroundcolor.gif);
+	
+	
+}
+#header {
+	padding: 0px;
+	height: auto;
+	width: 960px;
+	margin-right: auto;
+	margin-left: auto;
+	
+}
+#content {
+	height: auto;
+	width: 960px;
+	margin-right: auto;
+	margin-left: auto;
+	padding-top: 0px;
+	padding-right: 20px;
+	padding-bottom: 0px;
+	padding-left: 0px;
+	background-color: #f3e3c6
+	font-family: Arial Black, Gadget, sans-serif;
+	
+	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+}
+
+
+
+#imageabovenav {
+	float: left;
+	height: 150px;
+	width: 200px;
+	padding-top: 20px;
+	margin-right: 20px;
+	margin-left: auto;
+}
+
+#homenav {
+	float: left;
+}
+#productnav {
+	float: left;
+}
+#ordernav {
+	float: left;
+}
+#contactnav {
+	float: left;
+}
+
+
+
+#righthpimage {
+	float: right;
+}
+
+#leftsidecontent {
+	float: left;
+	height: auto;
+	width: 300px;
+	background-color: #f3e3c6;
+	padding-bottom: 5000px;
+	margin-bottom: -5000px;
+	
+	
+	
+}
+
+.hprightimage {
+	float: right;
+	margin-right: auto;
+	margin-left: auto;
+	padding-top: 20px;
+}
+
+
+#paragraph {
+	height: auto;
+	width: 178px;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+
+#rightsidecontent {
+	float: left;
+	height: auto;
+	width: 660px;
+	margin-right: auto;
+	margin-left: auto;
+	background-color: #f3e3c6
+	
+	
+}
+#footer {
+	background-color: #b3eaf6;
+	float: left;
+	height: 35px;
+	width: 960px;
+	margin-right: auto;
+	margin-left: auto;
+	font-family: Tahoma, Geneva, sans-serif;
+}
+
+
+
